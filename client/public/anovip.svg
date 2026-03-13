@@ -1,0 +1,25 @@
+<svg width="165" height="82" viewBox="0 0 165 82" xmlns="http://www.w3.org/2000/svg">
+  <text x="0" y="44" font-family="Cambria, Georgia, serif" font-weight="bold" font-size="38" fill="#002060" letter-spacing="-1">
+    anov
+  </text>
+
+  <rect x="103" y="6" width="3" height="58" fill="#E36C0A"></rect>
+
+  <text x="112" y="44" font-family="Cambria, Georgia, serif" font-weight="bold" font-size="42" fill="#E36C0A">
+    IP
+  </text>
+
+  <line x1="112" y1="48" x2="157" y2="48" stroke="#E36C0A" stroke-width="1.5"></line>
+
+  <text x="112" y="57" font-family="Calibri, Arial, sans-serif" font-size="8" fill="#002060" letter-spacing="2">
+    ATTORNEYS
+  </text>
+
+  <text x="112" y="66" font-family="Calibri, Arial, sans-serif" font-size="8" fill="#002060" letter-spacing="2">
+    AGENTS &amp;
+  </text>
+
+  <text x="108" y="75" font-family="Calibri, Arial, sans-serif" font-size="7.5" fill="#002060" letter-spacing="1.8">
+    ASSOCIATES
+  </text>
+</svg>

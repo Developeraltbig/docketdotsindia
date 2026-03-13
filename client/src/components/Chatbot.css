@@ -1,0 +1,541 @@
+/* components/Chatbot/Chatbot.css */
+/* Theme: Deep Gradient (Premium AI Look) */
+
+/* ============================================
+   CHATBOT CONTAINER
+   ============================================ */
+
+.chatbot-container {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 400px;
+  height: 550px;
+  background: #ffffff;
+  border-radius: 18px; /* Softer, more modern curves */
+  /* Deep, layered shadow for a high-end feel */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15), 0 5px 15px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 9999;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1); /* smooth pop-up */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-container.expanded {
+  width: 600px;
+  height: 700px;
+  bottom: 20px;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   HEADER (UPDATED: Deep Gradient)
+   ============================================ */
+
+.chatbot-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 22px;
+  /* The Key Fix: Gradient shifts from Brand Orange to Deep Burnt Red */
+  /* This reduces visual fatigue while keeping the brand identity */
+  background: linear-gradient(120deg, #ff6c2f 0%, #c0392b 100%);
+  color: white;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(192, 57, 43, 0.2); /* Colored shadow */
+}
+
+.chatbot-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.chatbot-title {
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.chatbot-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.chatbot-header-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 7px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  backdrop-filter: blur(4px);
+}
+
+.chatbot-header-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   HISTORY PANEL
+   ============================================ */
+
+.chatbot-history {
+  position: absolute;
+  top: 65px;
+  left: 0;
+  right: 0;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-history h4 {
+  padding: 14px 22px 8px;
+  font-size: 11px;
+  color: #a0a0a0;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 22px;
+  cursor: pointer;
+  border-bottom: 1px solid #f9f9f9;
+  transition: background 0.2s;
+}
+
+.history-item:hover {
+  background: #fff5f2; /* Subtle rose tint */
+}
+
+/* ============================================
+   MESSAGES AREA
+   ============================================ */
+
+.chatbot-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px 22px;
+  background: #fdfdfd;
+}
+
+/* ============================================
+   WELCOME SCREEN
+   ============================================ */
+
+.chatbot-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  padding: 20px;
+}
+
+.chatbot-welcome svg {
+  width: 50px;
+  height: 50px;
+  /* Gradient Icon */
+  fill: url(#myGradient); /* Note: requires SVG defs, fallback to color */
+  color: #ff6c2f;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 5px 10px rgba(255, 108, 47, 0.2));
+}
+
+.chatbot-welcome h3 {
+  margin: 0 0 10px;
+  font-size: 19px;
+  color: #2c3e50;
+  font-weight: 700;
+}
+
+.chatbot-welcome p {
+  margin: 0 0 30px;
+  font-size: 14px;
+  color: #7f8c8d;
+  line-height: 1.6;
+}
+
+.quick-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* Premium "Card" style suggestions */
+.suggestion-btn {
+  background: white;
+  border: 1px solid #eaeaea;
+  border-radius: 12px;
+  padding: 10px 18px;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+.suggestion-btn:hover {
+  border-color: #ff6c2f;
+  color: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 108, 47, 0.15);
+}
+
+/* ============================================
+   MESSAGE BUBBLES
+   ============================================ */
+
+.message {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 24px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.message.user {
+  flex-direction: row-reverse;
+}
+
+.message-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* AI Avatar: Deep Gradient Background */
+.message.assistant .message-avatar {
+  background: linear-gradient(135deg, #ff6c2f 0%, #c0392b 100%);
+  color: white;
+}
+
+/* User Avatar: Solid Dark Grey (Anchors the visual) */
+.message.user .message-avatar {
+  background: #2d3436;
+  color: white;
+}
+
+.message-content {
+  max-width: 80%;
+}
+
+.message-text {
+  padding: 14px 18px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* AI Message: Clean White with subtle shadow */
+.message.assistant .message-text {
+  background: white;
+  color: #2c3e50;
+  border-radius: 4px 18px 18px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid #f1f1f1;
+}
+
+/* User Message: Dark Grey (Crucial for Option 3) */
+/* This prevents the "Orange Overload" while looking sophisticated */
+.message.user .message-text {
+  background: #2d3436;
+  color: #f5f5f5;
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 3px 10px rgba(45, 52, 54, 0.2);
+}
+
+.message.error .message-text {
+  background: #fff5f5;
+  color: #c0392b;
+  border-left: 3px solid #c0392b;
+}
+
+/* Links inside messages */
+.message.assistant .message-text a,
+.message.assistant .message-text .chat-link {
+  color: #d35400;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Links inside the dark user bubble need to be light */
+.message.user .message-text a {
+  color: #fab1a0; /* Pastel Orange/Peach */
+  text-decoration: underline;
+}
+
+/* ============================================
+   NAVIGATION LINKS
+   ============================================ */
+
+.navigation-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.nav-link-btn {
+  background: white;
+  border: 1px solid #ff6c2f;
+  border-radius: 20px;
+  padding: 7px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #ff6c2f;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(255, 108, 47, 0.05);
+}
+
+.nav-link-btn:hover {
+  /* Gradient Hover */
+  background: linear-gradient(135deg, #ff6c2f 0%, #ff4b1f 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 10px rgba(255, 108, 47, 0.3);
+}
+
+/* ============================================
+   FOLLOW-UP SUGGESTIONS
+   ============================================ */
+
+.followup-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.followup-btn {
+  background: transparent;
+  border: 1px dashed #b2bec3;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: #636e72;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.followup-btn:hover {
+  border-color: #ff6c2f;
+  color: #d35400;
+  background: #fff8f5;
+}
+
+/* ============================================
+   TYPING INDICATOR
+   ============================================ */
+
+.typing-indicator {
+  display: flex;
+  gap: 5px;
+  padding: 16px 20px;
+  background: white;
+  border-radius: 4px 18px 18px 18px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  width: fit-content;
+}
+
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  /* Deep Red for indicator */
+  background: #c0392b;
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+/* ============================================
+   INPUT AREA
+   ============================================ */
+
+.chatbot-input-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  padding: 18px 22px;
+  background: white;
+  border-top: 1px solid #eee;
+}
+
+.chatbot-input {
+  flex: 1;
+  border: 1px solid #e0e0e0;
+  border-radius: 14px;
+  padding: 12px 18px;
+  font-size: 14px;
+  background: #fdfdfd;
+  resize: none;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.chatbot-input:focus {
+  background: white;
+  border-color: #ff6c2f;
+  box-shadow: 0 0 0 3px rgba(255, 108, 47, 0.08);
+}
+
+.send-btn {
+  width: 44px;
+  height: 44px;
+  border: none;
+  border-radius: 12px;
+  /* Deep Gradient Match */
+  background: linear-gradient(135deg, #ff6c2f 0%, #c0392b 100%);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(192, 57, 43, 0.3);
+}
+
+.send-btn:hover:not(:disabled) {
+  transform: scale(1.05);
+  box-shadow: 0 5px 12px rgba(192, 57, 43, 0.4);
+}
+
+/* ============================================
+   FLOATING ACTION BUTTON
+   ============================================ */
+
+.chatbot-fab {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 64px;
+  height: 64px;
+  border: none;
+  border-radius: 50%;
+  /* Deep Gradient Match */
+  background: linear-gradient(135deg, #ff6c2f 0%, #c0392b 100%);
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Premium Shadow */
+  box-shadow: 0 6px 20px rgba(192, 57, 43, 0.4);
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 9998;
+}
+
+.chatbot-fab:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 10px 25px rgba(192, 57, 43, 0.5);
+}
+
+.unread-badge {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 14px;
+  height: 14px;
+  background: #2d3436; /* Dark Contrast Badge */
+  border-radius: 50%;
+  border: 2px solid white;
+}
+/* ============================================
+   RESPONSIVE STYLES
+   ============================================ */
+
+@media (max-width: 480px) {
+  .chatbot-container {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+  }
+
+  .chatbot-container.expanded {
+    width: 100%;
+    height: 100%;
+  }
+
+  .chatbot-fab {
+    bottom: 16px;
+    right: 16px;
+    width: 56px;
+    height: 56px;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLES
+   ============================================ */
+
+.chatbot-messages::-webkit-scrollbar,
+.chatbot-history::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatbot-messages::-webkit-scrollbar-track,
+.chatbot-history::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb,
+.chatbot-history::-webkit-scrollbar-thumb {
+  background: #d0d0d0;
+  border-radius: 3px;
+}
+
+.chatbot-messages::-webkit-scrollbar-thumb:hover,
+.chatbot-history::-webkit-scrollbar-thumb:hover {
+  background: #b0b0b0;
+}
+
+/* ============================================
+   DARK MODE SUPPORT (Optional)
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .chatbot-container {
+    /* Uncomment for dark mode support */
+    background: #1a1a2e;
+    color: #e0e0e0;
+  }
+}
