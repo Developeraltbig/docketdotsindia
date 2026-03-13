@@ -314,8 +314,8 @@ function AdminManagerDashboard() {
       if (dashRes.status === "fulfilled") setDashData(dashRes.value.data);
       if (chartRes.status === "fulfilled")
         setChartData(
-          // chartRes.value.data?.length ? chartRes.value.data : dummyChartData,
-          dummyChartData,
+          chartRes.value.data?.length ? chartRes.value.data : dummyChartData,
+          // dummyChartData,
         );
       if (distRes.status === "fulfilled")
         setStatusDist(distRes.value.data || []);
